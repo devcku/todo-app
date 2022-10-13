@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO | Home</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="mx-auto max-w-6xl font-pops px-6 ">
+      <h1 class="font-medium pt-6 md:pt-10 text-lg text-zinc-400 flex items-center gap-0.5 ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        </svg>        
+        
+        TODO</h1>
+      <section class="grid grid-cols-12 mt-10 gap-4 relative">
+        <!-- input -->
+        <form id="form1" class="md:hidden block col-span-12">
+          <input
+            name="todo"
+            autocomplete="off"
+            class="w-full placeholder:text-gray-400 text-gray-500 rounded py-1 px-4 bg-zinc-100 outline-2 border-2 border-zinc-300 outline-zinc-300"
+            placeholder="Do something..."
+          />
+          <button
+            id="button1"
+            class="w-full px-auto py-1 mt-4 rounded bg-zinc-600 text-white"
+          >
+            Add Task
+          </button>
+        </form>
+
+        <!-- container -->
+        <div
+          id="container"
+          class="col-span-12 md:col-span-8 flex flex-col gap-4 pb-10"
+        ></div>
+
+        <!-- input -->
+        <form id="form2" class="hidden md:block col-span-4">
+          <input
+            name="todo"
+            autocomplete="off"
+            class="w-full placeholder:text-gray-400 text-gray-500 rounded py-1 px-4 bg-zinc-100 outline-2 border-2 border-zinc-300 outline-zinc-300"
+            placeholder="Do something..."
+          />
+          <button
+            id="button2"
+            class="w-full px-auto py-1 mt-4 rounded bg-zinc-600 text-white"
+          >
+            Add Task
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
