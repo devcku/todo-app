@@ -1,19 +1,19 @@
-var container = document.querySelector("#container");
-var form1 = document.getElementById("form1");
-var form2 = document.getElementById("form2");
-var deletebtns = document.querySelectorAll(".deletebtn");
-var completebtns = document.querySelectorAll(".completebtn");
+const container = document.querySelector("#container");
+const form1 = document.getElementById("form1");
+const form2 = document.getElementById("form2");
+let deletebtns = document.querySelectorAll(".deletebtn");
+let completebtns = document.querySelectorAll(".completebtn");
 
-var todos = [];
+let todos = [];
 
 checkTodos = () => {
   if (todos.length == 0) {
-    container.innerHTML = `<div class="text-zinc-400 text-center py-7 fade-in bg-zinc-100 border-2 border-zinc-300">Nothing to do...</div>`;
+    container.innerHTML = `<div class="text-zinc-400 dark:text-zinc-500 text-center py-7 fade-in bg-zinc-100 dark:bg-zinc-800 border-2 border-zinc-300 dark:border-zinc-700">Nothing to do...</div>`;
   } else {
     renderTodos();
   }
 };
-var compare = (a, b) => {
+const compare = (a, b) => {
   if (a.completed < b.completed) {
     return -1;
   }
@@ -30,20 +30,20 @@ const renderTodos = () => {
     container.innerHTML += `<div
     style='animation-delay:${i}00ms;'
         class="w-full ${
-          !todos[i].completed ? `bg-zinc-100` : `bg-green-100`
+          !todos[i].completed ? `bg-zinc-100 dark:bg-zinc-800` : `bg-green-100 dark:bg-green-900/75`
         } py-4 fade-in px-6 flex rounded justify-between items-center shadow-sm"
       >
         <div>
           <h3 class="text-sm">
-            <span class="text-zinc-500">${todo.time}</span>
+            <span class="text-zinc-500 dark:text-zinc-400">${todo.time}</span>
           </h3>
-          <h2 class="text-lg text-zinc-600 font-normal">
+          <h2 class="text-lg text-zinc-600 dark:text-zinc-300 font-normal">
           ~${todo.title}
           </h2>
           </div>
           <div class="flex gap-4 items-center">
           <div
-          class=" hover:cursor-pointer rounded-full bg-zinc-50 p-2 h-max completebtn"
+          class=" hover:cursor-pointer rounded-full bg-zinc-50 dark:bg-zinc-900 p-2 h-max completebtn"
           data-index=${i}
           >
           ${
@@ -71,7 +71,7 @@ const renderTodos = () => {
           </div>
           <div
           data-index=${i}
-            class="text-red-500 hover:cursor-pointer rounded-full p-2 deletebtn"
+            class="text-red-500  hover:cursor-pointer rounded-full p-2 deletebtn"
           >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -99,11 +99,11 @@ const renderTodos = () => {
   });
 };
 
-var addTodo = (e, form) => {
+const addTodo = (e, form) => {
   e.preventDefault();
   if (form.todo.value) {
-    var date = new Date();
-    var time = `${date.getHours()}:${date.getMinutes()} `;
+    let date = new Date();
+    let time = `${date.getHours()}:${date.getMinutes()} `;
     todos.unshift({ title: form.todo.value, time, completed: false });
 
     form.todo.value = "";
@@ -113,7 +113,7 @@ var addTodo = (e, form) => {
   }
 };
 
-var deleteTodo = (index) => {
+const deleteTodo = (index) => {
   todos.splice(index, 1);
 
   renderTodos();
