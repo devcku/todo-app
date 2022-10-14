@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.fade-in{
+    opacity: 0;
+    animation: fade-in .3s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+    }
+}

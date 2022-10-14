@@ -8,7 +8,7 @@ var todos = [];
 
 checkTodos = () => {
   if (todos.length == 0) {
-    container.innerHTML = `<div class="text-zinc-400 text-center py-7 bg-zinc-100 border-2 border-zinc-300">Nothing to do...</div>`;
+    container.innerHTML = `<div class="text-zinc-400 text-center py-7 fade-in bg-zinc-100 border-2 border-zinc-300">Nothing to do...</div>`;
   } else {
     renderTodos();
   }
@@ -28,9 +28,10 @@ const renderTodos = () => {
   todos.sort(compare);
   todos.forEach((todo, i) => {
     container.innerHTML += `<div
+    style='animation-delay:${i}00ms;'
         class="w-full ${
-          !todos[i].completed ? `bg-zinc-100` : `bg-green-50`
-        } py-4 px-6 flex rounded justify-between items-center shadow-sm"
+          !todos[i].completed ? `bg-zinc-100` : `bg-green-100`
+        } py-4 fade-in px-6 flex rounded justify-between items-center shadow-sm"
       >
         <div>
           <h3 class="text-sm">
@@ -103,7 +104,8 @@ var addTodo = (e, form) => {
   if (form.todo.value) {
     var date = new Date();
     var time = `${date.getHours()}:${date.getMinutes()} `;
-    todos.push({ title: form.todo.value, time, completed: false });
+    todos.unshift({ title: form.todo.value, time, completed: false });
+
     form.todo.value = "";
 
     renderTodos();
