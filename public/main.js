@@ -8,7 +8,7 @@ let todos = [];
 
 checkTodos = () => {
   if (todos.length == 0) {
-    container.innerHTML = `<div class="text-zinc-400 dark:text-zinc-500 text-center py-7 fade-in bg-zinc-100 dark:bg-zinc-800">Nothing to do...</div>`;
+    container.innerHTML = `<div class="text-zinc-400 rounded-sm dark:text-zinc-500 text-center py-8 fade-in bg-zinc-100 dark:bg-zinc-800">Nothing to do...</div>`;
   } else {
     renderTodos();
   }
@@ -31,7 +31,7 @@ const renderTodos = () => {
     style='animation-delay:${i}00ms;'
         class="w-full ${
           !todos[i].completed ? `bg-zinc-100 dark:bg-zinc-800` : `bg-green-100 dark:bg-green-900/75`
-        } py-4 fade-in px-6 flex rounded justify-between items-center shadow-sm"
+        } py-4 fade-in px-6 flex rounded-sm justify-between items-center shadow-sm"
       >
         <div>
           <h3 class="text-sm">
